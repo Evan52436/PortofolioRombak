@@ -1,0 +1,40 @@
+{
+  "placeholderImages": [
+    {
+      "id": "profile",
+      "description": "Evan Pranawa Armansyah",
+      "imageUrl": "/main.webp",
+      "imageHint": "person city"
+    },
+    {
+      "id": "profile-placeholder",
+      "description": "Developer Avatar Placeholder",
+      "imageUrl": "/profile-placeholder.svg",
+      "imageHint": "developer avatar placeholder"
+    },
+    {
+      "id": "profile-alt",
+      "description": "Teachable Machine Photo",
+      "imageUrl": "/erpeel.webp",
+      "imageHint": "alternate profile photo"
+    },
+    {
+      "id": "project-code",
+      "description": "A screen showing website code.",
+      "imageUrl": "/myweb.webp",
+      "imageHint": "web development"
+    },
+    {
+      "id": "project-music",
+      "description": "Teachable Machine Demo",
+      "imageUrl": "/erpeel.webp",
+      "imageHint": "erpeel"
+    },
+    {
+      "id": "project-webapp",
+      "description": "Clash of Cyber Heist, Regional Cybersecurity Competition",
+      "imageUrl": "/sert.webp",
+      "imageHint": "Cybersecurity Competition"
+    }
+  ]
+}

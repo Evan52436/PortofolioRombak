@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 212 35% 91%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 212 35% 96%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 212 35% 96%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 212 45% 68%;
+    --primary-foreground: 224 71.4% 4.1%;
+    --secondary: 215 25% 85%;
+    --secondary-foreground: 224 71.4% 4.1%;
+    --muted: 215 25% 90%;
+    --muted-foreground: 215 20% 45%;
+    --accent: 213 35% 55%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 25% 80%;
+    --input: 215 25% 80%;
+    --ring: 213 35% 55%;
+    --chart-1: 212 45% 68%;
+    --chart-2: 213 35% 55%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 210 20% 96%;
+    --card: 220 15% 14%;
+    --card-foreground: 210 20% 96%;
+    --popover: 220 15% 14%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 212 45% 68%;
+    --primary-foreground: 224 71.4% 4.1%;
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 96%;
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 65%;
+    --accent: 213 35% 55%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 213 35% 55%;
+    --chart-1: 212 45% 68%;
+    --chart-2: 213 35% 55%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto !important;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
+
+
+/* Terminal entrance: macOS magic-lamp squash-pop out of the bottom-center lamp.
+   The exit is handled by the 30-slice genie in genie-terminal-transition.tsx. */
+@keyframes terminal-genie {
+  0% {
+    opacity: 0;
+    transform: translateY(60vh) scale(0.25, 0.05);
+    transform-origin: 50% 100%;
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(8vh) scale(0.6, 0.5);
+    transform-origin: 50% 100%;
+  }
+  65% {
+    transform: translateY(-1.5vh) scale(1.02, 0.94);
+    transform-origin: 50% 100%;
+  }
+  85% {
+    transform: translateY(0.5vh) scale(0.99, 1.015);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1);
+    transform-origin: 50% 100%;
+  }
+}
+.terminal-genie {
+  animation: terminal-genie 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes terminal-genie-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1, 1);
+    transform-origin: 50% 100%;
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-1.5vh) scale(1.02, 0.94);
+    transform-origin: 50% 100%;
+  }
+  60% {
+    opacity: 0.85;
+    transform: translateY(14vh) scale(0.6, 0.45);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(60vh) scale(0.25, 0.05);
+    transform-origin: 50% 100%;
+  }
+}
+.terminal-genie-out {
+  animation: terminal-genie-out 420ms cubic-bezier(0.32, 0, 0.67, 0) both;
+}
+
+/* Footer stacked word - animates layers converging as the user scrolls (ackteams-style) */
+.footer-stack {
+  --fs: 14.6vw;
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: calc(var(--fs) * 1.5); /* overridden per scroll frame by JS */
+  overflow: hidden;
+  user-select: none;
+}
+.footer-stack-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  text-align: center;
+  white-space: nowrap;
+  font-family: var(--font-archivo-black), var(--font-poppins), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: var(--fs);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  will-change: transform;
+  color: #e8c468; /* light-mode --chart-4, from the site palette */
+}
+.footer-stack-line:nth-child(2) {
+  color: #fff;
+}
+.footer-stack-line:nth-child(3) {
+  color: #89abd2;
+}
+.footer-stack-measure {
+  position: absolute;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: var(--font-archivo-black), var(--font-poppins), system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Stacked experience cards matching the portfolio design system */
+.experience-stacked-card {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+  opacity: 1;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.08),
+    0 2px 4px -2px rgba(0, 0, 0, 0.06),
+    0 -8px 24px -8px rgba(0, 0, 0, 0.12),
+    0 20px 32px -12px rgba(0, 0, 0, 0.18);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform, opacity;
+}
+
+.dark .experience-stacked-card {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -2px rgba(0, 0, 0, 0.2),
+    0 -12px 32px -8px rgba(0, 0, 0, 0.45),
+    0 24px 40px -12px rgba(0, 0, 0, 0.55);
+}
+/* Smooth Audio Equalizer dancing bars (Fluid GPU-accelerated scaleY) */
+@keyframes eq-smooth-1 {
+  0%, 100% { transform: scaleY(0.2); }
+  35% { transform: scaleY(0.85); }
+  65% { transform: scaleY(0.35); }
+  85% { transform: scaleY(0.95); }
+}
+@keyframes eq-smooth-2 {
+  0%, 100% { transform: scaleY(0.35); }
+  25% { transform: scaleY(0.9); }
+  55% { transform: scaleY(0.25); }
+  80% { transform: scaleY(0.75); }
+}
+@keyframes eq-smooth-3 {
+  0%, 100% { transform: scaleY(0.5); }
+  30% { transform: scaleY(0.2); }
+  60% { transform: scaleY(0.95); }
+  85% { transform: scaleY(0.4); }
+}
+@keyframes eq-smooth-4 {
+  0%, 100% { transform: scaleY(0.25); }
+  40% { transform: scaleY(0.8); }
+  70% { transform: scaleY(0.3); }
+  90% { transform: scaleY(1); }
+}
+@keyframes eq-smooth-5 {
+  0%, 100% { transform: scaleY(0.4); }
+  20% { transform: scaleY(0.95); }
+  50% { transform: scaleY(0.35); }
+  75% { transform: scaleY(0.8); }
+}
+@keyframes eq-smooth-6 {
+  0%, 100% { transform: scaleY(0.6); }
+  35% { transform: scaleY(0.25); }
+  65% { transform: scaleY(0.9); }
+  85% { transform: scaleY(0.45); }
+}
+@keyframes eq-smooth-7 {
+  0%, 100% { transform: scaleY(0.3); }
+  25% { transform: scaleY(0.85); }
+  55% { transform: scaleY(0.2); }
+  80% { transform: scaleY(0.95); }
+}
+@keyframes eq-smooth-8 {
+  0%, 100% { transform: scaleY(0.45); }
+  30% { transform: scaleY(0.95); }
+  60% { transform: scaleY(0.35); }
+  85% { transform: scaleY(0.75); }
+}
+
+.animate-eq-1 { animation: eq-smooth-1 1.6s ease-in-out infinite; transform-origin: bottom; will-change: transform; }
+.animate-eq-2 { animation: eq-smooth-2 1.9s ease-in-out infinite -0.4s; transform-origin: bottom; will-change: transform; }
+.animate-eq-3 { animation: eq-smooth-3 1.4s ease-in-out infinite -0.8s; transform-origin: bottom; will-change: transform; }
+.animate-eq-4 { animation: eq-smooth-4 2.1s ease-in-out infinite -0.2s; transform-origin: bottom; will-change: transform; }
+.animate-eq-5 { animation: eq-smooth-5 1.7s ease-in-out infinite -0.6s; transform-origin: bottom; will-change: transform; }
+.animate-eq-6 { animation: eq-smooth-6 1.5s ease-in-out infinite -1.1s; transform-origin: bottom; will-change: transform; }
+.animate-eq-7 { animation: eq-smooth-7 2.0s ease-in-out infinite -0.5s; transform-origin: bottom; will-change: transform; }
+.animate-eq-8 { animation: eq-smooth-8 1.8s ease-in-out infinite -0.9s; transform-origin: bottom; will-change: transform; }
+.animate-eq-9 { animation: eq-smooth-1 1.75s ease-in-out infinite -0.7s; transform-origin: bottom; will-change: transform; }
+.animate-eq-10 { animation: eq-smooth-2 1.45s ease-in-out infinite -1.2s; transform-origin: bottom; will-change: transform; }
+.animate-eq-11 { animation: eq-smooth-3 2.05s ease-in-out infinite -0.3s; transform-origin: bottom; will-change: transform; }
+.animate-eq-12 { animation: eq-smooth-4 1.65s ease-in-out infinite -1.0s; transform-origin: bottom; will-change: transform; }
+.animate-eq-13 { animation: eq-smooth-5 1.85s ease-in-out infinite -0.15s; transform-origin: bottom; will-change: transform; }
+.animate-eq-14 { animation: eq-smooth-6 1.55s ease-in-out infinite -0.75s; transform-origin: bottom; will-change: transform; }
+.animate-eq-15 { animation: eq-smooth-7 2.15s ease-in-out infinite -1.3s; transform-origin: bottom; will-change: transform; }
+.animate-eq-16 { animation: eq-smooth-8 1.7s ease-in-out infinite -0.55s; transform-origin: bottom; will-change: transform; }
+.animate-eq-17 { animation: eq-smooth-1 1.95s ease-in-out infinite -1.05s; transform-origin: bottom; will-change: transform; }
+.animate-eq-18 { animation: eq-smooth-2 1.6s ease-in-out infinite -0.35s; transform-origin: bottom; will-change: transform; }
+.animate-eq-19 { animation: eq-smooth-3 1.8s ease-in-out infinite -0.9s; transform-origin: bottom; will-change: transform; }
+.animate-eq-20 { animation: eq-smooth-4 1.5s ease-in-out infinite -0.65s; transform-origin: bottom; will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lenis Smooth Scroll Core Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* GPU promotion for Experience stacking cards to avoid layer repainting */
+.experience-stacked-card {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
