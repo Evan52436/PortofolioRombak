@@ -263,7 +263,7 @@ export const App: React.FC = () => {
       ====================================================================== */}
       <section
         id="hero"
-        className="pt-10 lg:h-screen lg:max-h-screen lg:min-h-[560px] flex flex-col justify-between overflow-hidden"
+        className="pt-10 lg:h-screen lg:min-h-[560px] flex flex-col justify-between overflow-hidden"
       >
         {/* Top Metadata Strip */}
         <div
@@ -287,7 +287,7 @@ export const App: React.FC = () => {
         >
           {/* Left 7 Cols: Viewport-Proportional Typography & Editorial Manifesto */}
           <div
-            className={`lg:col-span-7 p-4 sm:p-6 lg:px-[3vw] lg:py-[2.2vh] border-b-2 lg:border-b-0 lg:border-r-2 ${borderCol} flex flex-col justify-between relative overflow-hidden min-h-0`}
+            className={`lg:col-span-7 p-4 sm:p-6 lg:px-[3vw] lg:py-[clamp(0.75rem,2vh,1.75rem)] border-b-2 lg:border-b-0 lg:border-r-2 ${borderCol} flex flex-col justify-between relative overflow-hidden min-h-0`}
           >
             {/* Subtle Halftone Dot Pattern in corner */}
             <div
@@ -316,7 +316,7 @@ export const App: React.FC = () => {
               <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#4e739e] font-bold mb-0.5">
                 // PORTFOLIO OF
               </div>
-              <h1 className="font-bebas text-[18vw] sm:text-[13vw] lg:text-[min(8.2vw,13.2vh)] leading-[0.82] tracking-tight uppercase">
+              <h1 className="font-bebas text-[18vw] sm:text-[13vw] lg:text-[min(8vw,12.5vh)] leading-[0.82] tracking-tight uppercase">
                 EVAN
                 <br />
                 <span className="inline-block bg-[#89abd2] text-[#0d0d0d] border-2 border-[#0d0d0d] px-2.5 sm:px-4 py-0.5 mt-0.5 -rotate-1 shadow-[4px_4px_0px_#0d0d0d]">
@@ -324,23 +324,23 @@ export const App: React.FC = () => {
                 </span>
                 <span className="block mt-1.5">ARMANSYAH.</span>
               </h1>
-              <blockquote className="mt-3 lg:mt-[1.8vh] font-instrument italic text-xl sm:text-2xl lg:text-[clamp(1.3rem,2.6vh,1.95rem)] leading-[1.1] max-w-2xl">
+              <blockquote className="mt-2.5 lg:mt-[clamp(0.5rem,1.5vh,1.25rem)] font-instrument italic text-xl sm:text-2xl lg:text-[clamp(1.25rem,2.4vh,1.85rem)] leading-[1.1] max-w-2xl">
                 “Native in Linux systems, bare-metal servers &amp; network architecture.”
               </blockquote>
             </div>
 
             {/* Full-Width Stacked Action Buttons */}
-            <div className="pt-3 border-t-2 border-dashed border-current/30 flex flex-col gap-2.5 shrink-0 font-mono text-xs sm:text-sm">
+            <div className="pt-2.5 border-t-2 border-dashed border-current/30 flex flex-col gap-2 shrink-0 font-mono text-xs sm:text-sm">
               <button
                 onClick={() => jump('works')}
-                className={`w-full px-5 py-3 lg:py-[1.45vh] bg-[#89abd2] hover:bg-[#789ac1] text-[#0d0d0d] font-bold uppercase tracking-[0.2em] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-between cursor-pointer`}
+                className={`w-full px-5 py-2.5 lg:py-[clamp(0.55rem,1.3vh,0.95rem)] bg-[#89abd2] hover:bg-[#789ac1] text-[#0d0d0d] font-bold uppercase tracking-[0.2em] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center justify-between cursor-pointer`}
               >
                 <span>01 // EXPLORE PROJECTS &amp; SYSTEMS</span>
                 <ArrowDownRight className="w-4 h-4 shrink-0" />
               </button>
               <button
                 onClick={() => setTerminalOpen(true)}
-                className={`w-full px-5 py-3 lg:py-[1.45vh] ${cardBg} font-bold uppercase tracking-[0.2em] border-2 ${borderCol} shadow-[4px_4px_0px_#0d0d0d] hover:bg-[#0d0d0d] hover:text-white transition-colors flex items-center justify-between cursor-pointer`}
+                className={`w-full px-5 py-2.5 lg:py-[clamp(0.55rem,1.3vh,0.95rem)] ${cardBg} font-bold uppercase tracking-[0.2em] border-2 ${borderCol} shadow-[4px_4px_0px_#0d0d0d] hover:bg-[#0d0d0d] hover:text-white transition-colors flex items-center justify-between cursor-pointer`}
               >
                 <span>02 // OPEN INTERACTIVE TERMINAL (~)</span>
                 <Terminal className="w-4 h-4 text-[#4e739e] shrink-0" />
@@ -374,26 +374,19 @@ export const App: React.FC = () => {
                 </span>
               </div>
 
-              {/* Image Content (Fills flexible window height) */}
+              {/* Image Content (Clean unobstructed photo) */}
               <div className="relative flex-1 min-h-0 w-full overflow-hidden border-b-2 border-[#0d0d0d] bg-black">
                 <img
                   src="/main.webp"
                   alt="Night skyline silhouette"
                   className="w-full h-full object-cover object-center contrast-115"
                 />
-                {/* Editorial Sticker Stamp */}
-                <div className="absolute top-2.5 right-2.5 bg-[#89abd2] text-[#0d0d0d] border-2 border-black px-2 py-0.5 font-mono text-[9px] font-bold rotate-2 shadow-[2px_2px_0px_#000]">
-                  5× LINUX NODES // BOGOR
-                </div>
-                <div className="absolute bottom-2 left-2 bg-black/90 text-white border border-white/30 px-2 py-0.5 font-mono text-[9px]">
-                  Arch Linux · Fedora 41 · Armbian · Docker
-                </div>
               </div>
 
               {/* Window Status Bar */}
               <div className="shrink-0 px-3 py-1 flex items-center justify-between font-mono text-[10px] bg-[#eae6df]">
-                <span className="font-bold">USER: EVAN P. ARMANSYAH</span>
-                <span className="text-[#4e739e] font-bold">UID: 0 (ROOT)</span>
+                <span className="font-bold">BOGOR, INDONESIA</span>
+                <span className="text-[#4e739e] font-bold">ARCH · FEDORA · ARMBIAN</span>
               </div>
             </div>
 
@@ -421,28 +414,24 @@ export const App: React.FC = () => {
               >
                 <div className="flex items-center justify-between border-b border-white/20 pb-1 text-[#89abd2] font-bold">
                   <span>$ systemctl status homelab</span>
-                  <span>● 99.9%</span>
+                  <span>● ONLINE</span>
                 </div>
-                <div className="space-y-0.5 my-1 text-[9.5px] text-zinc-300">
+                <div className="space-y-1 my-1 text-[10px] text-zinc-300">
                   <div className="flex justify-between gap-2">
-                    <span className="text-zinc-500">NODE_01:</span>
+                    <span className="text-zinc-500">GATEWAY:</span>
                     <span className="text-white font-bold truncate">Dell Wyse 5010 (Fedora)</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-zinc-500">NODE_02:</span>
-                    <span className="text-white font-bold truncate">HG680-P (Armbian NAS)</span>
+                    <span className="text-zinc-500">STORAGE:</span>
+                    <span className="text-[#89abd2] font-bold truncate">HG680-P (MinIO S3 NAS)</span>
                   </div>
                   <div className="flex justify-between gap-2">
-                    <span className="text-zinc-500">OBJECT_S3:</span>
-                    <span className="text-[#89abd2] font-bold truncate">MinIO Decoupled Pool</span>
-                  </div>
-                  <div className="flex justify-between gap-2">
-                    <span className="text-zinc-500">AUDIO_FOH:</span>
-                    <span className="text-white truncate">Ableton Live / Studio One</span>
+                    <span className="text-zinc-500">ACOUSTICS:</span>
+                    <span className="text-white truncate">Live FOH &amp; DAW</span>
                   </div>
                 </div>
                 <div className="text-[8.5px] text-zinc-500 border-t border-white/15 pt-1 flex justify-between">
-                  <span>DRAW: 14W TOTAL</span>
+                  <span>14W CLUSTER</span>
                   <span className="text-[#89abd2]">TAILSCALE MESH</span>
                 </div>
               </div>
@@ -462,10 +451,10 @@ export const App: React.FC = () => {
                 // BARE-METAL NODES
               </span>
               <span className="font-grotesk text-xs sm:text-sm font-bold uppercase mt-0.5 block">
-                24/7 Self-Hosted Cluster
+                24/7 Linux Cluster
               </span>
             </div>
-            <span className="font-bebas text-4xl sm:text-5xl lg:text-[5.2vh] leading-none">
+            <span className="font-bebas text-4xl sm:text-5xl lg:text-[min(3.5vw,5.2vh)] leading-none">
               02
             </span>
           </div>
@@ -476,24 +465,24 @@ export const App: React.FC = () => {
                 // PRODUCTION BUILDS
               </span>
               <span className="font-grotesk text-xs sm:text-sm font-bold uppercase mt-0.5 block">
-                Decoupled S3 &amp; Web Systems
+                S3 &amp; Web Systems
               </span>
             </div>
-            <span className="font-bebas text-4xl sm:text-5xl lg:text-[5.2vh] leading-none">
-              05
+            <span className="font-bebas text-4xl sm:text-5xl lg:text-[min(3.5vw,5.2vh)] leading-none">
+              08
             </span>
           </div>
 
           <div className="px-4 py-2.5 sm:px-6 lg:py-[1.6vh] flex items-center justify-between">
             <div>
               <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#4e739e] font-bold block">
-                // CYBERSECURITY CTF
+                // CYBERSECURITY
               </span>
               <span className="font-grotesk text-xs sm:text-sm font-bold uppercase mt-0.5 block">
-                Clash of Cyberheist Finalist
+                Cyberheist Finalist
               </span>
             </div>
-            <span className="font-bebas text-4xl sm:text-5xl lg:text-[5.2vh] leading-none">
+            <span className="font-bebas text-4xl sm:text-5xl lg:text-[min(3.5vw,5.2vh)] leading-none">
               T10
             </span>
           </div>
@@ -504,10 +493,10 @@ export const App: React.FC = () => {
                 // ACCREDITATIONS
               </span>
               <span className="font-grotesk text-xs sm:text-sm font-bold uppercase mt-0.5 block">
-                Verified Honors &amp; Awards
+                Verified Awards
               </span>
             </div>
-            <span className="font-bebas text-4xl sm:text-5xl lg:text-[5.2vh] leading-none text-[#89abd2]">
+            <span className="font-bebas text-4xl sm:text-5xl lg:text-[min(3.5vw,5.2vh)] leading-none text-[#89abd2]">
               06+
             </span>
           </div>
@@ -515,308 +504,234 @@ export const App: React.FC = () => {
       </section>
 
       {/* =====================================================================
-          02 // OPERATOR DOSSIER & 4 SUBSYSTEMS ("HELLO, I'M EVAN")
+          02 // ABOUT ME — MINIMAL, VISUAL & SCANNABLE SPREAD
       ====================================================================== */}
       <section id="dossier" className={`border-b-2 ${borderCol}`}>
-        <div className="grid grid-cols-1 lg:grid-cols-12">
-          {/* Left Vertical Label + Portrait Window (4 Cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+          {/* Left 5 Cols: Clean Portrait Window */}
           <div
-            className={`lg:col-span-4 p-5 sm:p-8 lg:p-[2.5vw] border-b-2 lg:border-b-0 lg:border-r-2 ${borderCol} flex flex-col justify-between`}
+            className={`lg:col-span-5 p-6 sm:p-10 lg:p-[3.2vw] border-b-2 lg:border-b-0 lg:border-r-2 ${borderCol} ${
+              darkMode ? 'bg-[#121217]' : 'bg-[#dcd7cd]'
+            } flex flex-col justify-center`}
           >
-            <div>
-              <div className="font-mono text-xs font-bold uppercase tracking-widest text-[#4e739e] mb-1.5">
-                // 02 — ABOUT ME
-              </div>
-              <h2 className="font-bebas text-6xl sm:text-7xl lg:text-[clamp(3.5rem,5.2vw,5.5rem)] leading-[0.84] uppercase">
-                HELLO,
-                <br />
-                I&apos;M{' '}
-                <span className="inline-block bg-[#89abd2] text-[#0d0d0d] border-2 border-[#0d0d0d] px-2.5 pt-0.5 shadow-[4px_4px_0px_#0d0d0d]">
-                  EVAN.
-                </span>
-              </h2>
-              <p className="mt-3 font-instrument italic text-xl sm:text-2xl leading-snug">
-                “Where low-power Linux silicon meets modern full-stack craft.”
-              </p>
-            </div>
-
-            {/* Framed DevFest Operator Card */}
-            <div className={`mt-6 border-2 border-[#0d0d0d] bg-white text-black ${hardShadow}`}>
-              <div className="bg-[#0d0d0d] text-white px-3 py-1.5 font-mono text-[10px] font-bold flex justify-between">
+            <div className={`border-2 border-[#0d0d0d] bg-white text-black ${hardShadow} max-w-md mx-auto w-full`}>
+              <div className="bg-[#0d0d0d] text-white px-3.5 py-2 font-mono text-[11px] font-bold flex justify-between">
                 <span>DevFest_Portrait.png</span>
-                <span className="text-[#89abd2]">VERIFIED</span>
+                <span className="text-[#89abd2]">BOGOR, ID</span>
               </div>
               <div className="aspect-[5/4] w-full overflow-hidden border-b-2 border-[#0d0d0d]">
                 <img
                   src="/epuy.webp"
                   alt="Evan Pranawa at Google Developer Group DevFest"
-                  className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-2.5 font-mono text-[10px] flex justify-between items-center bg-[#f4f1ea]">
-                <span className="font-bold">GDG ALAM SUTERA // HACKATHON</span>
+              <div className="px-3.5 py-2 font-mono text-[11px] flex justify-between items-center bg-[#f4f1ea]">
+                <span className="font-bold">GDG DEVFEST // ALAM SUTERA</span>
                 <span className="px-2 py-0.5 bg-[#89abd2] text-[#0d0d0d] border border-[#0d0d0d] font-bold text-[10px]">
-                  RPL
+                  SYSADMIN
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right 8 Cols: Biography + 2x2 Brutalist Subsystem Matrix */}
-          <div className="lg:col-span-8 flex flex-col justify-between">
-            <div className={`p-5 sm:p-8 lg:p-[2.5vw] border-b-2 ${borderCol} space-y-3`}>
-              <div className="font-mono text-xs uppercase tracking-widest opacity-60">
-                $ cat /home/evan/about.txt
+          {/* Right 7 Cols: Concise Bio + 4 Visual Capability Tiles (No Text Walls) */}
+          <div className="lg:col-span-7 p-6 sm:p-10 lg:p-[3.8vw] flex flex-col justify-between gap-8">
+            <div className="space-y-4">
+              <div className="font-mono text-xs font-bold uppercase tracking-widest text-[#4e739e]">
+                // 02 — ABOUT ME
               </div>
-              <p className="font-grotesk text-lg sm:text-2xl lg:text-[clamp(1.2rem,2vw,1.75rem)] font-bold leading-snug">
-                I&apos;m Evan Pranawa Armansyah — a Junior System Administrator and Full-Stack Developer based in Bogor, Indonesia.
-              </p>
-              <p className="font-sans text-sm sm:text-base opacity-85 leading-relaxed max-w-3xl">
-                Majoring in Software Engineering (Rekayasa Perangkat Lunak) &amp; Cybersecurity, I build and maintain my own bare-metal homelab servers, architect decoupled MinIO S3 object storage systems, and compete in Capture The Flag (CTF) security tournaments. Beyond computing, I engineer live event sound (FOH) and produce music in Ableton Live &amp; Studio One.
+              <h2 className="font-bebas text-6xl sm:text-7xl lg:text-[clamp(3.8rem,5.8vw,6rem)] leading-[0.84] uppercase">
+                HELLO, I&apos;M{' '}
+                <span className="inline-block bg-[#89abd2] text-[#0d0d0d] border-2 border-[#0d0d0d] px-3 pt-0.5 shadow-[4px_4px_0px_#0d0d0d]">
+                  EVAN.
+                </span>
+              </h2>
+              <p className="font-grotesk text-lg sm:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl opacity-90 pt-1">
+                Junior System Administrator based in Bogor, Indonesia, majoring in Software Engineering &amp; Cybersecurity. I build bare-metal homelab servers, self-hosted S3 storage, and network infrastructure — alongside live event audio engineering and DAW production.
               </p>
             </div>
 
-            {/* 2x2 Brutalist Subsystem Grid */}
-            <div
-              className={`grid grid-cols-1 md:grid-cols-2 divide-y-2 md:divide-y-0 md:divide-x-2 ${
-                darkMode ? 'divide-[#eae6df]/25' : 'divide-[#0d0d0d]'
-              }`}
-            >
-              <div className="p-5 sm:p-7 space-y-5">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs font-bold text-[#4e739e] mb-1">
-                    <span>[01 // SYSADMIN &amp; LINUX]</span>
-                    <Server className="w-4 h-4" />
+            {/* 4 Compact Visual Focus Cards (Zero Paragraph Clutter) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {[
+                {
+                  id: '01',
+                  title: 'Linux & Bare-Metal',
+                  tags: 'Fedora 41 · Armbian · Docker · Nginx',
+                  icon: Server,
+                },
+                {
+                  id: '02',
+                  title: 'Storage & Systems',
+                  tags: 'MinIO S3 · NAS · Tailscale · Cloudflare',
+                  icon: Cpu,
+                },
+                {
+                  id: '03',
+                  title: 'Cybersecurity & CTF',
+                  tags: 'Top 10 Cyberheist · Wireshark · Nmap',
+                  icon: Shield,
+                },
+                {
+                  id: '04',
+                  title: 'Live Sound & DAW',
+                  tags: 'Event FOH · Ableton Live · Studio One',
+                  icon: Disc,
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.id}
+                    className={`p-4 border-2 ${borderCol} ${cardBg} shadow-[4px_4px_0px_#0d0d0d] flex flex-col justify-between gap-2`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="px-2 py-0.5 bg-[#89abd2] text-[#0d0d0d] border border-[#0d0d0d] font-mono text-[10px] font-bold">
+                        {item.id}
+                      </span>
+                      <Icon className="w-4 h-4 text-[#4e739e]" />
+                    </div>
+                    <div>
+                      <h3 className="font-grotesk text-base sm:text-lg font-bold uppercase">
+                        {item.title}
+                      </h3>
+                      <p className="font-mono text-[11px] opacity-75 mt-0.5">{item.tags}</p>
+                    </div>
                   </div>
-                  <h3 className="font-grotesk text-lg sm:text-xl font-bold uppercase">
-                    Bare-Metal &amp; Homelab Ops
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm opacity-80 leading-relaxed">
-                    Headless Fedora Server 41 &amp; Armbian Debian administration, Nginx reverse proxies, Cloudflare Zero-Trust tunnels, and Tailscale WireGuard mesh routing.
-                  </p>
-                </div>
-
-                <div className={`pt-5 border-t-2 ${borderCol}`}>
-                  <div className="flex items-center justify-between font-mono text-xs font-bold text-[#4e739e] mb-1">
-                    <span>[02 // WEB &amp; S3 STORAGE]</span>
-                    <Cpu className="w-4 h-4" />
-                  </div>
-                  <h3 className="font-grotesk text-lg sm:text-xl font-bold uppercase">
-                    Full-Stack &amp; Object Storage
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm opacity-80 leading-relaxed">
-                    TypeScript, React, Next.js, and Laravel MVC applications wired directly to self-hosted MinIO S3 buckets and MySQL/PostgreSQL databases.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-5 sm:p-7 space-y-5">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs font-bold text-[#4e739e] mb-1">
-                    <span>[03 // SECURITY &amp; CTF]</span>
-                    <Shield className="w-4 h-4" />
-                  </div>
-                  <h3 className="font-grotesk text-lg sm:text-xl font-bold uppercase">
-                    Cybersecurity &amp; CTF
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm opacity-80 leading-relaxed">
-                    Top 10 Clash of Cyberheist finalist. Wireshark packet analysis, network mapping, web exploitation defense, and SSH key-only perimeter hardening.
-                  </p>
-                </div>
-
-                <div className={`pt-5 border-t-2 ${borderCol}`}>
-                  <div className="flex items-center justify-between font-mono text-xs font-bold text-[#4e739e] mb-1">
-                    <span>[04 // SOUND &amp; DAW]</span>
-                    <Disc className="w-4 h-4" />
-                  </div>
-                  <h3 className="font-grotesk text-lg sm:text-xl font-bold uppercase">
-                    Live Audio &amp; Music Production
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm opacity-80 leading-relaxed">
-                    Event Front-of-House (FOH) audio engineer, digital production in Ableton Live &amp; Studio One, and live performance on keys, guitar, and drums.
-                  </p>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* =====================================================================
-          03 // SELECTED WORKS — INTERACTIVE OS FOLDER WORKBENCH
+          03 // SELECTED WORKS — SINGLE-VIEWPORT INTERACTIVE .AppImage WORKBENCH
       ====================================================================== */}
       <section id="works" className={`border-b-2 ${borderCol}`}>
-        {/* Section Banner */}
+        {/* Compact Section Header */}
         <div
-          className={`px-4 sm:px-8 py-8 lg:py-[3.5vh] border-b-2 ${borderCol} flex flex-col lg:flex-row lg:items-end justify-between gap-6 bg-[#0d0d0d] text-[#eae6df]`}
+          className={`px-4 sm:px-8 py-6 border-b-2 ${borderCol} flex flex-col sm:flex-row sm:items-end justify-between gap-4 bg-[#0d0d0d] text-[#eae6df]`}
         >
           <div>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#89abd2] font-bold block mb-1.5">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#89abd2] font-bold block mb-1">
               // 03 — FEATURED PROJECTS
             </span>
-            <h2 className="font-bebas text-[15vw] sm:text-[10vw] lg:text-[clamp(4rem,7vw,6.8rem)] leading-[0.82] uppercase">
+            <h2 className="font-bebas text-5xl sm:text-7xl leading-[0.85] uppercase">
               SELECTED <span className="text-[#89abd2]">WORKS.</span>
             </h2>
           </div>
-
-          {/* Interactive Folder Tab Selector */}
-          <div className="flex flex-wrap gap-2 font-mono text-xs">
-            {projects.map((p, idx) => (
-              <button
-                key={p.id}
-                onClick={() => {
-                  setActiveProject(idx);
-                  document.getElementById(`proj-${idx}`)?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className={`px-3.5 py-2 border-2 transition-all cursor-pointer font-bold uppercase flex items-center gap-2 ${
-                  activeProject === idx
-                    ? 'bg-[#89abd2] text-[#0d0d0d] border-white shadow-[3px_3px_0px_#ffffff]'
-                    : 'bg-[#17171f] text-zinc-300 border-white/25 hover:border-white'
-                }`}
-              >
-                <Folder className="w-3.5 h-3.5" />
-                <span>0{idx + 1}_{p.title.split(' ')[0]}</span>
-              </button>
-            ))}
-          </div>
+          <span className="font-mono text-xs text-zinc-400">
+            SELECT A PROJECT BELOW TO INSPECT APPLICATION &amp; SCREENSHOTS
+          </span>
         </div>
 
-        {/* All Projects Displayed as Viewport-Friendly Staggered Case-Study Cards */}
-        <div
-          className={`divide-y-2 ${
-            darkMode ? 'divide-[#eae6df]/25' : 'divide-[#0d0d0d]'
-          }`}
-        >
-          {projects.map((proj, idx) => {
-            const gallery =
-              proj.gallery && proj.gallery.length > 0 ? proj.gallery : [proj.image];
-            const shotIdx = activeShotIdx[proj.id] || 0;
-            const currentShot = gallery[shotIdx] || proj.image;
-            const isHighlighted = activeProject === idx;
-            const appImageName = `${proj.title.replace(/\s+/g, '_')}.AppImage`;
+        {/* Interactive Workbench: Left Project Selector + Right Active .AppImage Window */}
+        {(() => {
+          const proj = projects[activeProject] || projects[0];
+          const gallery =
+            proj.gallery && proj.gallery.length > 0 ? proj.gallery : [proj.image];
+          const shotIdx = activeShotIdx[proj.id] || 0;
+          const currentShot = gallery[shotIdx] || proj.image;
+          const appImageName = `${proj.title.replace(/\s+/g, '_')}.AppImage`;
 
-            return (
-              <article
-                key={proj.id}
-                id={`proj-${idx}`}
-                className={`grid grid-cols-1 lg:grid-cols-12 transition-colors ${
-                  isHighlighted ? (darkMode ? 'bg-[#15151d]' : 'bg-[#f6f3ec]') : ''
-                }`}
+          return (
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+              {/* Left 5 Cols: Project Directory List + Active Project Summary */}
+              <div
+                className={`lg:col-span-5 p-5 sm:p-8 lg:p-[2.5vw] border-b-2 lg:border-b-0 lg:border-r-2 ${borderCol} flex flex-col justify-between gap-6`}
               >
-                {/* Left 5 Cols: Brutalist Spec Sheet */}
-                <div
-                  className={`lg:col-span-5 p-5 sm:p-8 lg:px-[2.5vw] lg:py-[3.5vh] border-b-2 lg:border-b-0 lg:border-r-2 ${borderCol} flex flex-col justify-between`}
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="px-2.5 py-0.5 bg-[#89abd2] text-[#0d0d0d] border border-[#0d0d0d] font-mono text-[11px] font-bold uppercase">
-                        PROJECT // 0{idx + 1}
+                {/* Clickable Project Tabs */}
+                <div className="grid grid-cols-2 gap-2 font-mono text-[11px]">
+                  {projects.map((p, idx) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setActiveProject(idx)}
+                      className={`px-3 py-2.5 border-2 text-left transition-all cursor-pointer font-bold uppercase flex items-center gap-2 truncate ${
+                        activeProject === idx
+                          ? 'bg-[#89abd2] text-[#0d0d0d] border-[#0d0d0d] shadow-[3px_3px_0px_#0d0d0d]'
+                          : `${cardBg} ${borderCol} opacity-75 hover:opacity-100`
+                      }`}
+                    >
+                      <Folder className="w-3.5 h-3.5 shrink-0" />
+                      <span className="truncate">
+                        0{idx + 1} · {p.title}
                       </span>
-                      <span className="font-mono text-[11px] opacity-60">
-                        [{proj.technologies[0]}_BUILD]
-                      </span>
-                    </div>
+                    </button>
+                  ))}
+                </div>
 
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-bebas text-6xl sm:text-7xl lg:text-[clamp(3.2rem,4.8vw,4.8rem)] leading-none text-[#5b82b0]">
-                        0{idx + 1}
-                      </span>
-                      <h3 className="font-bebas text-4xl sm:text-5xl lg:text-[clamp(2.2rem,3.4vw,3.4rem)] leading-[0.88] uppercase">
-                        {proj.title}
-                      </h3>
-                    </div>
-
-                    <p className="mt-3 font-grotesk text-sm sm:text-base font-medium leading-relaxed">
-                      {proj.description}
-                    </p>
-
-                    {proj.content && (
-                      <div
-                        className={`mt-4 p-3.5 border-2 ${borderCol} ${cardBg} font-mono text-[11px] leading-relaxed`}
-                      >
-                        <span className="text-[#4e739e] font-bold block mb-1">
-                          // SYSTEM ARCHITECTURE:
-                        </span>
-                        {proj.content}
-                      </div>
-                    )}
-
-                    {/* Stack Pills */}
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                      {proj.technologies.map((t) => (
-                        <span
-                          key={t}
-                          className="px-2.5 py-1 bg-[#0d0d0d] text-[#eae6df] font-mono text-[11px] font-bold uppercase"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                {/* Active Project Details (Minimal & Clean) */}
+                <div className="my-auto py-2">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-bebas text-6xl sm:text-7xl leading-none text-[#5b82b0]">
+                      0{activeProject + 1}
+                    </span>
+                    <h3 className="font-bebas text-4xl sm:text-5xl leading-[0.88] uppercase">
+                      {proj.title}
+                    </h3>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="mt-6 pt-4 border-t-2 border-current/20 flex flex-wrap gap-3 font-mono text-xs">
-                    {proj.url && proj.url !== '#' && (
-                      <a
-                        href={proj.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`px-4 py-2.5 bg-[#89abd2] hover:bg-[#789ac1] text-[#0d0d0d] font-bold uppercase tracking-wider border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] hover:translate-x-0.5 hover:translate-y-0.5 transition-all flex items-center gap-2`}
+                  <p className="mt-3 font-grotesk text-base sm:text-lg font-medium leading-relaxed opacity-90">
+                    {proj.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {proj.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="px-2.5 py-1 bg-[#0d0d0d] text-[#eae6df] font-mono text-[11px] font-bold uppercase"
                       >
-                        <span>LIVE DEMO</span>
-                        <ArrowUpRight className="w-4 h-4" />
-                      </a>
-                    )}
-                    {proj.githubUrl && (
-                      <a
-                        href={proj.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`px-4 py-2.5 ${cardBg} font-bold uppercase tracking-wider border-2 ${borderCol} hover:bg-[#0d0d0d] hover:text-white transition-colors flex items-center gap-2`}
-                      >
-                        <Github className="w-4 h-4" />
-                        <span>SOURCE CODE</span>
-                      </a>
-                    )}
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Right 7 Cols: OS Window Frame (.AppImage) + Contact-Sheet Switcher */}
-                <div
-                  className={`lg:col-span-7 p-4 sm:p-7 lg:px-[2.5vw] lg:py-[3.5vh] ${
-                    darkMode ? 'bg-[#0e0e13]' : 'bg-[#ded9ce]'
-                  } flex flex-col justify-center`}
-                >
-                  <div
-                    className={`border-2 border-[#0d0d0d] bg-[#0d0d0d] text-white ${hardShadow}`}
-                  >
-                    {/* Window Header */}
-                    <div className="px-3.5 py-2 bg-[#0d0d0d] border-b-2 border-white/20 flex items-center justify-between font-mono text-xs">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="w-2.5 h-2.5 bg-[#89abd2] inline-block shrink-0" />
-                        <span className="w-2.5 h-2.5 bg-[#dfe7f2] inline-block shrink-0" />
-                        <span className="font-bold ml-1 truncate">
-                          {appImageName} — FRAME 0{shotIdx + 1}/0{gallery.length}
-                        </span>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setLightbox({
-                            title: proj.title,
-                            sub: proj.technologies.join(' · '),
-                            image: currentShot.imageUrl,
-                            desc: proj.description,
-                            url: proj.url,
-                          })
-                        }
-                        className="px-2 py-0.5 bg-[#89abd2] text-[#0d0d0d] text-[10px] font-bold cursor-pointer shrink-0"
-                      >
-                        FULLSCREEN ↗
-                      </button>
-                    </div>
+                {/* Active Project Links */}
+                <div className="pt-4 border-t-2 border-current/20 flex flex-wrap gap-3 font-mono text-xs">
+                  {proj.url && proj.url !== '#' && (
+                    <a
+                      href={proj.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2.5 bg-[#89abd2] hover:bg-[#789ac1] text-[#0d0d0d] font-bold uppercase tracking-wider border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] flex items-center gap-2"
+                    >
+                      <span>LIVE DEMO</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                  )}
+                  {proj.githubUrl && (
+                    <a
+                      href={proj.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-4 py-2.5 ${cardBg} font-bold uppercase tracking-wider border-2 ${borderCol} hover:bg-[#0d0d0d] hover:text-white transition-colors flex items-center gap-2`}
+                    >
+                      <Github className="w-4 h-4" />
+                      <span>SOURCE CODE</span>
+                    </a>
+                  )}
+                </div>
+              </div>
 
-                    {/* Screenshot Canvas */}
-                    <div
+              {/* Right 7 Cols: Active .AppImage Window */}
+              <div
+                className={`lg:col-span-7 p-5 sm:p-8 lg:p-[2.5vw] ${
+                  darkMode ? 'bg-[#0e0e13]' : 'bg-[#ded9ce]'
+                } flex flex-col justify-center`}
+              >
+                <div className={`border-2 border-[#0d0d0d] bg-[#0d0d0d] text-white ${hardShadow}`}>
+                  <div className="px-3.5 py-2 bg-[#0d0d0d] border-b-2 border-white/20 flex items-center justify-between font-mono text-xs">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="w-2.5 h-2.5 bg-[#89abd2] inline-block shrink-0" />
+                      <span className="w-2.5 h-2.5 bg-[#dfe7f2] inline-block shrink-0" />
+                      <span className="font-bold ml-1 truncate">
+                        {appImageName} — FRAME 0{shotIdx + 1}/0{gallery.length}
+                      </span>
+                    </div>
+                    <button
                       onClick={() =>
                         setLightbox({
                           title: proj.title,
@@ -826,162 +741,137 @@ export const App: React.FC = () => {
                           url: proj.url,
                         })
                       }
-                      className="relative aspect-[16/10] max-h-[58vh] w-full bg-black overflow-hidden cursor-pointer group"
+                      className="px-2 py-0.5 bg-[#89abd2] text-[#0d0d0d] text-[10px] font-bold cursor-pointer shrink-0"
                     >
-                      <img
-                        src={currentShot.imageUrl}
-                        alt={proj.title}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                      />
-                    </div>
-
-                    {/* Contact-Sheet Frame Selector */}
-                    {gallery.length > 1 && (
-                      <div className="p-2.5 bg-[#14141b] border-t border-white/15 flex items-center gap-2 overflow-x-auto">
-                        <span className="font-mono text-[10px] text-zinc-400 shrink-0">
-                          SCREENSHOT:
-                        </span>
-                        {gallery.map((g, gIdx) => (
-                          <button
-                            key={gIdx}
-                            onClick={() =>
-                              setActiveShotIdx((prev) => ({ ...prev, [proj.id]: gIdx }))
-                            }
-                            className={`px-2.5 py-1 font-mono text-[10px] uppercase font-bold cursor-pointer shrink-0 transition-colors ${
-                              shotIdx === gIdx
-                                ? 'bg-[#89abd2] text-[#0d0d0d]'
-                                : 'bg-white/10 text-white hover:bg-white/20'
-                            }`}
-                          >
-                            SHOT_0{gIdx + 1}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                      FULLSCREEN ↗
+                    </button>
                   </div>
+
+                  <div
+                    onClick={() =>
+                      setLightbox({
+                        title: proj.title,
+                        sub: proj.technologies.join(' · '),
+                        image: currentShot.imageUrl,
+                        desc: proj.description,
+                        url: proj.url,
+                      })
+                    }
+                    className="relative aspect-[16/10] max-h-[56vh] w-full bg-black overflow-hidden cursor-pointer group"
+                  >
+                    <img
+                      src={currentShot.imageUrl}
+                      alt={proj.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+
+                  {gallery.length > 1 && (
+                    <div className="p-2.5 bg-[#14141b] border-t border-white/15 flex items-center gap-2 overflow-x-auto">
+                      <span className="font-mono text-[10px] text-zinc-400 shrink-0">
+                        SCREENSHOT:
+                      </span>
+                      {gallery.map((_, gIdx) => (
+                        <button
+                          key={gIdx}
+                          onClick={() =>
+                            setActiveShotIdx((prev) => ({ ...prev, [proj.id]: gIdx }))
+                          }
+                          className={`px-2.5 py-1 font-mono text-[10px] uppercase font-bold cursor-pointer shrink-0 transition-colors ${
+                            shotIdx === gIdx
+                              ? 'bg-[#89abd2] text-[#0d0d0d]'
+                              : 'bg-white/10 text-white hover:bg-white/20'
+                          }`}
+                        >
+                          SHOT_0{gIdx + 1}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </article>
-            );
-          })}
-        </div>
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* =====================================================================
-          04 // BARE-METAL HOMELAB RACK — DARK BLUEPRINT SCHEMATIC SECTION
+          04 // BARE-METAL HOMELAB — CLEAN HARDWARE OVERVIEW
       ====================================================================== */}
       <section
         id="rack"
-        className="bg-[#0d0d0d] text-[#eae6df] border-b-2 border-[#0d0d0d] py-14 sm:py-16 px-4 sm:px-8"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-        }}
+        className="bg-[#0d0d0d] text-[#eae6df] border-b-2 border-[#0d0d0d] py-12 sm:py-16 px-4 sm:px-8"
       >
         <div className="max-w-[1440px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b-2 border-white/20 pb-6 mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b-2 border-white/20 pb-5 mb-8">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#89abd2] font-bold block mb-1.5">
-                // 04 — SELF-HOSTED SERVER INFRASTRUCTURE
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#89abd2] font-bold block mb-1">
+                // 04 — SELF-HOSTED INFRASTRUCTURE
               </span>
-              <h2 className="font-bebas text-[15vw] sm:text-[10vw] lg:text-[clamp(4rem,7vw,6.8rem)] leading-[0.82] uppercase text-white">
+              <h2 className="font-bebas text-5xl sm:text-7xl leading-[0.85] uppercase text-white">
                 BARE-METAL <span className="text-[#89abd2]">HOMELAB.</span>
               </h2>
             </div>
-            <p className="font-instrument italic text-xl sm:text-2xl text-zinc-300 lg:max-w-md">
-              “Self-hosted 24/7 cluster engineered from repurposed thin-client &amp; ARM hardware.”
-            </p>
+            <span className="font-mono text-xs text-[#89abd2] font-bold">
+              CLIENT ━━▶ CLOUDFLARE ━━▶ DELL WYSE (FEDORA) ━━▶ HG680-P (MINIO NAS)
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             {/* Hardware Stack Photo Window */}
-            <div className="lg:col-span-5 border-2 border-white/30 bg-[#14141b] p-4 shadow-[6px_6px_0px_#89abd2] flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between font-mono text-xs font-bold border-b border-white/20 pb-2 mb-3">
-                  <span className="text-[#89abd2]">Hardware_Rig.png</span>
-                  <span className="px-2 py-0.5 bg-[#89abd2] text-[#0d0d0d]">14W TOTAL DRAW</span>
-                </div>
-                <div className="aspect-[4/3] w-full overflow-hidden border border-white/20 bg-black">
-                  <img
-                    src="/image.webp"
-                    alt="Physical Homelab Hardware Rig"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            <div className="lg:col-span-5 border-2 border-white/30 bg-[#14141b] p-3.5 shadow-[6px_6px_0px_#89abd2] flex flex-col justify-between">
+              <div className="flex items-center justify-between font-mono text-xs font-bold pb-2">
+                <span className="text-[#89abd2]">Hardware_Rig.png</span>
+                <span className="px-2 py-0.5 bg-[#89abd2] text-[#0d0d0d]">14W TOTAL DRAW</span>
               </div>
-              <div className="mt-4 pt-3 border-t border-white/15 font-mono text-xs text-zinc-400 flex justify-between">
-                <span>LOCATION: BOGOR, ID</span>
-                <span className="text-[#89abd2] font-bold">● 2 NODES ACTIVE</span>
+              <div className="aspect-[16/10] w-full overflow-hidden border border-white/20 bg-black">
+                <img
+                  src="/image.webp"
+                  alt="Physical Homelab Hardware Rig"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
-            {/* 2 Rack Units + Dataflow Schematic */}
-            <div className="lg:col-span-7 flex flex-col justify-between gap-6">
-              {/* Schematic Routing Strip */}
-              <div className="border-2 border-[#89abd2] bg-black p-5 font-mono text-xs">
-                <div className="text-[#89abd2] font-bold mb-2">
-                  // ZERO-TRUST PACKET PIPELINE:
+            {/* 2 Clean Server Cards */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="border-2 border-white/30 bg-[#14141b] p-6 shadow-[6px_6px_0px_#ffffff] flex flex-col justify-between">
+                <div>
+                  <span className="font-mono text-xs text-[#89abd2] font-bold">
+                    NODE 01 // GATEWAY
+                  </span>
+                  <h3 className="font-bebas text-4xl text-white tracking-wide mt-1">
+                    DELL WYSE 5010
+                  </h3>
+                  <p className="font-mono text-xs text-zinc-400 mt-1">
+                    Fedora Server 41 · AMD G-T48E
+                  </p>
+                  <p className="text-sm text-zinc-300 mt-4 leading-relaxed">
+                    Runs Docker containers, Nginx reverse proxy, SSL termination, and Tailscale WireGuard mesh routing.
+                  </p>
                 </div>
-                <div className="flex flex-wrap items-center gap-2 font-bold text-white">
-                  <span className="px-3 py-1 bg-white/10 border border-white/20">CLIENT</span>
-                  <span className="text-[#89abd2]">━━▶</span>
-                  <span className="px-3 py-1 bg-white/10 border border-white/20">
-                    CLOUDFLARE EDGE
-                  </span>
-                  <span className="text-[#89abd2]">━━▶</span>
-                  <span className="px-3 py-1 bg-[#89abd2] text-[#0d0d0d]">DELL WYSE (FEDORA 41)</span>
-                  <span className="text-[#dfe7f2]">━━▶</span>
-                  <span className="px-3 py-1 bg-[#dfe7f2] text-black">
-                    HG680-P (MINIO S3 NAS)
-                  </span>
+                <div className="mt-6 pt-3 border-t border-white/15 font-mono text-xs text-[#89abd2] font-bold">
+                  STATUS: 24/7 ONLINE (~9W)
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
-                <div className="border-2 border-white/30 bg-[#14141b] p-6 shadow-[6px_6px_0px_#ffffff] flex flex-col justify-between">
-                  <div>
-                    <span className="font-mono text-xs text-[#89abd2] font-bold">
-                      SERVER_NODE_01 // GATEWAY
-                    </span>
-                    <h3 className="font-bebas text-4xl text-white tracking-wide mt-1">
-                      DELL WYSE 5010
-                    </h3>
-                    <p className="font-mono text-xs text-zinc-400">
-                      Fedora Server 41 · AMD G-T48E 1.4GHz
-                    </p>
-                    <ul className="mt-4 space-y-2 font-mono text-xs text-zinc-200 border-t border-white/15 pt-3">
-                      <li>+ Docker Container Engine</li>
-                      <li>+ Nginx Reverse Proxy &amp; SSL</li>
-                      <li>+ aaPanel &amp; Automated Cron Daemons</li>
-                      <li>+ Tailscale WireGuard Mesh Router</li>
-                    </ul>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-white/15 font-mono text-xs text-[#89abd2] font-bold">
-                    PORTS: 80 / 443 / 8888 / 22
-                  </div>
+              <div className="border-2 border-white/30 bg-[#14141b] p-6 shadow-[6px_6px_0px_#ffffff] flex flex-col justify-between">
+                <div>
+                  <span className="font-mono text-xs text-[#89abd2] font-bold">
+                    NODE 02 // S3 NAS
+                  </span>
+                  <h3 className="font-bebas text-4xl text-white tracking-wide mt-1">
+                    FIBERHOME HG680-P
+                  </h3>
+                  <p className="font-mono text-xs text-zinc-400 mt-1">
+                    Armbian Debian 12 · ARMv8 Quad-Core
+                  </p>
+                  <p className="text-sm text-zinc-300 mt-4 leading-relaxed">
+                    Hosts decoupled MinIO S3 object storage buckets, local SMB/NFS network shares, and MySQL persistence.
+                  </p>
                 </div>
-
-                <div className="border-2 border-white/30 bg-[#14141b] p-6 shadow-[6px_6px_0px_#ffffff] flex flex-col justify-between">
-                  <div>
-                    <span className="font-mono text-xs text-[#89abd2] font-bold">
-                      SERVER_NODE_02 // S3 NAS
-                    </span>
-                    <h3 className="font-bebas text-4xl text-white tracking-wide mt-1">
-                      FIBERHOME HG680-P
-                    </h3>
-                    <p className="font-mono text-xs text-zinc-400">
-                      Armbian Debian 12 · Amlogic S905X ARMv8
-                    </p>
-                    <ul className="mt-4 space-y-2 font-mono text-xs text-zinc-200 border-t border-white/15 pt-3">
-                      <li>+ MinIO S3 Object Storage Server</li>
-                      <li>+ Decoupled Multipart Stream Buckets</li>
-                      <li>+ SMB / NFS Local Shared Volumes</li>
-                      <li>+ MySQL Persistence &amp; rsync Mirrors</li>
-                    </ul>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-white/15 font-mono text-xs text-[#89abd2] font-bold">
-                    PORTS: 9000 / 9001 / 3306 / 445
-                  </div>
+                <div className="mt-6 pt-3 border-t border-white/15 font-mono text-xs text-[#89abd2] font-bold">
+                  STATUS: 24/7 ONLINE (~5W)
                 </div>
               </div>
             </div>
@@ -990,25 +880,25 @@ export const App: React.FC = () => {
       </section>
 
       {/* =====================================================================
-          05 // HONORS & ACCREDITATIONS — CONTACT SHEET PROOF GRID
+          05 // HONORS & AWARDS — CLEAN VISUAL GALLERY
       ====================================================================== */}
-      <section id="honors" className={`py-14 sm:py-16 px-4 sm:px-8 border-b-2 ${borderCol}`}>
+      <section id="honors" className={`py-12 sm:py-16 px-4 sm:px-8 border-b-2 ${borderCol}`}>
         <div className="max-w-[1440px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#4e739e] font-bold block mb-1.5">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#4e739e] font-bold block mb-1">
                 // 05 — AWARDS &amp; CERTIFICATES
               </span>
-              <h2 className="font-bebas text-[15vw] sm:text-[10vw] lg:text-[clamp(4rem,7vw,6.8rem)] leading-[0.82] uppercase">
+              <h2 className="font-bebas text-5xl sm:text-7xl leading-[0.85] uppercase">
                 HONORS &amp; <span className="text-[#5b82b0]">ARCHIVE.</span>
               </h2>
             </div>
-            <p className="font-mono text-xs uppercase tracking-widest opacity-70 pb-2">
-              CLICK ANY CARD TO VIEW FULL CERTIFICATE ↗
-            </p>
+            <span className="font-mono text-xs opacity-70">
+              CLICK ANY CARD TO EXPAND CERTIFICATE ↗
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {HONORS.map((h) => (
               <div
                 key={h.id}
@@ -1022,36 +912,29 @@ export const App: React.FC = () => {
                 }
                 className={`group border-2 border-[#0d0d0d] ${cardBg} ${hardShadow} hover:bg-[#89abd2] hover:text-[#0d0d0d] transition-colors cursor-pointer flex flex-col justify-between`}
               >
-                <div>
-                  <div className="px-3.5 py-2 bg-[#0d0d0d] text-white font-mono text-xs font-bold flex items-center justify-between">
-                    <span>
-                      Cert_{h.id}_{h.code}.png
-                    </span>
-                    <span className="text-[#89abd2]">{h.year}</span>
-                  </div>
-
-                  <div className="aspect-[4/3] w-full overflow-hidden border-b-2 border-[#0d0d0d] bg-black">
-                    <img
-                      src={h.img}
-                      alt={h.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-
-                  <div className="p-5">
-                    <span className="font-mono text-[10px] uppercase tracking-widest opacity-75 block">
-                      {h.org}
-                    </span>
-                    <h3 className="font-grotesk text-xl font-bold uppercase mt-1 leading-snug">
-                      {h.title}
-                    </h3>
-                    <p className="mt-2 text-xs opacity-85 leading-relaxed">{h.desc}</p>
-                  </div>
+                <div className="px-3 py-1.5 bg-[#0d0d0d] text-white font-mono text-[11px] font-bold flex items-center justify-between">
+                  <span>Cert_{h.id}_{h.code}.png</span>
+                  <span className="text-[#89abd2]">{h.year}</span>
                 </div>
 
-                <div className="px-5 pb-4 pt-2 border-t border-current/15 font-mono text-[11px] font-bold flex items-center justify-between">
-                  <span>VIEW CERTIFICATE</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                <div className="aspect-[16/10] w-full overflow-hidden border-b-2 border-[#0d0d0d] bg-black">
+                  <img
+                    src={h.img}
+                    alt={h.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-4 flex items-center justify-between gap-2">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider opacity-75 block">
+                      {h.org}
+                    </span>
+                    <h3 className="font-grotesk text-base sm:text-lg font-bold uppercase leading-snug">
+                      {h.title}
+                    </h3>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 shrink-0" />
                 </div>
               </div>
             ))}
@@ -1060,75 +943,57 @@ export const App: React.FC = () => {
       </section>
 
       {/* =====================================================================
-          06 // COLOPHON & DISPATCH POSTER FOOTER
+          06 // CONTACT FOOTER — CLEAN & DIRECT
       ====================================================================== */}
-      <footer id="dispatch" className="bg-[#89abd2] text-[#0d0d0d] pt-16 pb-12 px-4 sm:px-8">
+      <footer id="dispatch" className="bg-[#89abd2] text-[#0d0d0d] py-14 px-4 sm:px-8">
         <div className="max-w-[1440px] mx-auto">
-          <div className="border-b-4 border-[#0d0d0d] pb-8 mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] bg-[#0d0d0d] text-[#eae6df] px-3 py-1 inline-block mb-3">
-                // 06 — GET IN TOUCH
-              </span>
-              <h2 className="font-bebas text-[18vw] sm:text-[13vw] lg:text-[clamp(4.5rem,9vw,8.5rem)] leading-[0.78] uppercase text-[#0d0d0d]">
-                LET&apos;S TALK.
-              </h2>
-            </div>
-
-            <button
-              onClick={copyEmail}
-              className="px-6 py-4 bg-[#0d0d0d] text-white hover:bg-[#eae6df] hover:text-black border-2 border-[#0d0d0d] shadow-[6px_6px_0px_#eae6df] font-mono text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors flex items-center gap-3 cursor-pointer self-start lg:self-end"
-            >
-              {copied ? <Check className="w-4 h-4 text-[#89abd2]" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? 'COPIED: evanpranawa@ackteams.com' : 'COPY: evanpranawa@ackteams.com'}</span>
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-14 border-b-4 border-[#0d0d0d]">
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <p className="font-grotesk text-xl sm:text-2xl font-bold leading-snug">
-                  Available for Linux SysAdmin operations, self-hosted storage consulting, full-stack web engineering, and live audio production.
-                </p>
-                <div className="space-y-3 pt-2 font-mono text-xs font-bold">
-                  <a
-                    href="https://github.com/Evan52436"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 bg-[#eae6df] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] flex items-center justify-between hover:bg-white transition-colors"
-                  >
-                    <span>GITHUB // github.com/Evan52436</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                  <a
-                    href="mailto:evanpranawa@ackteams.com"
-                    className="p-4 bg-[#eae6df] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] flex items-center justify-between hover:bg-white transition-colors"
-                  >
-                    <span>EMAIL // evanpranawa@ackteams.com</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pb-10 border-b-4 border-[#0d0d0d]">
+            <div className="lg:col-span-5 space-y-5">
+              <div>
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] bg-[#0d0d0d] text-[#eae6df] px-3 py-1 inline-block mb-3">
+                  // 06 — CONTACT
+                </span>
+                <h2 className="font-bebas text-7xl sm:text-8xl leading-[0.8] uppercase text-[#0d0d0d]">
+                  LET&apos;S TALK.
+                </h2>
               </div>
 
-              {/* Barcode Stamp */}
-              <div className="p-4 bg-[#eae6df] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] flex items-center gap-4">
-                <div className="flex items-center gap-[2px] bg-white p-2 border border-black">
-                  {[2, 1, 3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 3, 2].map((w, i) => (
-                    <div key={i} className="h-7 bg-black" style={{ width: `${w * 2}px` }} />
-                  ))}
-                </div>
-                <div className="font-mono text-[10px] font-bold">
-                  <div>ARCHPAD EDITION // 2026</div>
-                  <div>BOGOR, WEST JAVA, ID</div>
-                  <div>LINUX SYSADMIN &amp; DEV</div>
-                </div>
+              <div className="space-y-2.5 font-mono text-xs font-bold">
+                <button
+                  onClick={copyEmail}
+                  className="w-full p-3.5 bg-[#0d0d0d] text-white hover:bg-[#eae6df] hover:text-black border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#eae6df] flex items-center justify-between transition-colors cursor-pointer"
+                >
+                  <span>
+                    {copied ? '✓ COPIED: evanpranawa@ackteams.com' : 'COPY EMAIL // evanpranawa@ackteams.com'}
+                  </span>
+                  <Copy className="w-4 h-4" />
+                </button>
+                <a
+                  href="https://github.com/Evan52436"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 bg-[#eae6df] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] flex items-center justify-between hover:bg-white transition-colors"
+                >
+                  <span>GITHUB // github.com/Evan52436</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://legacy.evanpranawa.my.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 bg-[#eae6df] border-2 border-[#0d0d0d] shadow-[4px_4px_0px_#0d0d0d] flex items-center justify-between hover:bg-white transition-colors"
+                >
+                  <span>LEGACY SITE // legacy.evanpranawa.my.id</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
 
             {/* Dispatch Form */}
-            <div className="lg:col-span-7 bg-[#eae6df] text-[#0d0d0d] border-2 border-[#0d0d0d] shadow-[8px_8px_0px_#0d0d0d] p-6 sm:p-10">
-              <div className="font-mono text-xs font-bold border-b-2 border-[#0d0d0d] pb-3 mb-6 flex justify-between">
+            <div className="lg:col-span-7 bg-[#eae6df] text-[#0d0d0d] border-2 border-[#0d0d0d] shadow-[6px_6px_0px_#0d0d0d] p-6 sm:p-8">
+              <div className="font-mono text-xs font-bold border-b-2 border-[#0d0d0d] pb-2.5 mb-5 flex justify-between">
                 <span>Send_Message.AppImage</span>
-                <span>STATUS: ONLINE</span>
+                <span>ONLINE</span>
               </div>
 
               {sent ? (
